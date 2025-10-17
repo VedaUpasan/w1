@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Veda Upasan Pedagadi — Elegant Data Portfolio</title>
+
+    <!-- NOTE: Put Kugile & Brilliant woff2 files into /fonts and uncomment the @font-face rules in style.css -->
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Typed.js for typing animation -->
+    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- main script (deferred) -->
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+        <nav class="navbar container" role="navigation" aria-label="Main navigation">
+            <div class="brand" aria-hidden="true">
+                <span class="brand-name">Veda</span><span class="brand-dot">.</span>
+            </div>
+
+            <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+            <ul id="navLinks" class="nav-links" role="menubar">
+                <li role="none"><a role="menuitem" href="#home">Home</a></li>
+                <li role="none"><a role="menuitem" href="#about">About</a></li>
+                <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
+                <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+                <li role="none"><a role="menuitem" href="#publications">Publications</a></li>
+                <li role="none"><a role="menuitem" href="#experience">Experience</a></li>
+                <li role="none"><a role="menuitem" href="#education">Education</a></li>
+                <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="controls">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                <!-- Resume (downloads /assets/resume.pdf) -->
+                <a id="resumeSmall" class="resume-small" href="assets/resume.pdf" download
+                    title="Download Resume">📄</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <!-- animated gradient particles canvas - script will create/handle this -->
+            <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+            <div class="hero-inner container">
+                <div class="hero-left">
+                    <div class="open-to-work">Open to Work</div>
+
+                    <!-- Header / name -->
+                    <h1 class="hero-name">
+                        Veda <span class="surname">Upasan Pedagadi</span>
+                    </h1>
+
+                    <!-- typed tagline -->
+                    <h2 class="hero-tagline"><span id="typed"></span></h2>
+
+                    <p class="hero-lead">Transforming data into insight — with quiet precision and refined design.</p>
+
+                    <div class="hero-ctas">
+                        <a id="downloadResume" class="btn primary" href="assets/resume.pdf" download>
+                            <span class="btn-icon" aria-hidden="true">📄</span>
+                            <span>Download Resume</span>
+                        </a>
+                        <a class="btn" href="#contact">Contact Me</a>
+                    </div>
+
+                    <p class="currently">Currently: <span id="currentWork">Exploring advanced MLOps workflows</span></p>
+                </div>
+
+                <div class="hero-right">
+                    <div class="portrait-card">
+                        <!-- placeholder image - replace with your photo at assets/profile.jpg -->
+                        <img src="assets/profile-placeholder.png" alt="Profile placeholder">
+                    </div>
+                </div>
+            </div>
+
+            <!-- bouncing down arrow -->
+            <button id="downArrow" class="down-arrow" aria-label="See more">⌄</button>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">About Me</h3>
+                <div class="section-accent" aria-hidden="true"></div>
+            </div>
+
+            <p class="lead">I’m a Data Analytics Engineer passionate about building intelligent, data-driven systems. I
+                specialize in database design, data analysis, and cloud-based machine learning pipelines. I enjoy
+                building reliable data infrastructure and production-ready ML systems.</p>
+
+            <blockquote class="quote">“I believe data tells stories — my job is to listen.”</blockquote>
+        </section>
+
+        <!-- SKILLS MAP -->
+        <section id="skills" class="section reveal">
+            <div class="container">
+                <div class="section-head">
+                    <h3 class="section-title">Skills Map</h3>
+                    <div class="section-accent"></div>
+                </div>
+
+                <p class="muted">Logo size and position reflect how often I use a skill. Hover / tap for context.</p>
+
+                <!-- Skill cloud - script will fill this -->
+                <div id="skillsMap" class="skills-map" aria-live="polite" aria-label="Skills map"></div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">Projects</h3>
+                <div class="section-accent"></div>
+            </div>
+
+            <div id="projectsGrid" class="cards-grid" role="list" aria-label="Projects list"></div>
+            <p class="muted small">Manage projects by editing <code>projects.json</code>.</p>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section id="publications" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">Publications</h3>
+                <div class="section-accent"></div>
+            </div>
+
+            <div id="publicationsGrid" class="cards-grid" role="list" aria-label="Publications list"></div>
+            <p class="muted small">Manage publications by editing <code>publications.json</code>.</p>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">Experience</h3>
+                <div class="section-accent"></div>
+            </div>
+
+            <div id="experienceList" class="timeline" aria-label="Experience timeline"></div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">Education</h3>
+                <div class="section-accent"></div>
+            </div>
+
+            <div id="educationList" class="timeline" aria-label="Education timeline"></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section container reveal">
+            <div class="section-head">
+                <h3 class="section-title">Contact</h3>
+                <div class="section-accent"></div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- contact form (EmailJS-ready) -->
+                <div class="contact-form">
+                    <form id="contactForm" novalidate>
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required />
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required />
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+
+                        <button class="btn primary" type="submit">Send Message</button>
+                        <p id="formStatus" class="muted small" aria-live="polite"></p>
+                    </form>
+
+                    <small class="muted">Form powered by <a href="https://www.emailjs.com" target="_blank"
+                            rel="noopener">EmailJS</a>. Replace IDs in script.js to enable sending.</small>
+                </div>
+
+                <!-- contact info -->
+                <aside class="contact-info">
+                    <div class="signature">
+                        <h4 class="signature-name">Veda Upasan Pedagadi</h4>
+                        <p class="muted">Data Analytics Engineer — Open to Work</p>
+                    </div>
+
+                    <div class="info-list">
+                        <p><strong>Email:</strong> <a href="mailto:vedaupasan@gmail.com">vedaupasan@gmail.com</a></p>
+                        <p><strong>Location:</strong> Boston, MA</p>
+
+                        <div class="socials" role="navigation" aria-label="Social links">
+                            <a href="https://github.com/vedaupasan" target="_blank" rel="noopener"
+                                aria-label="GitHub">GitHub</a>
+                            <a href="https://linkedin.com/in/vedaupasanpedagadi" target="_blank" rel="noopener"
+                                aria-label="LinkedIn">LinkedIn</a>
+                            <a href="mailto:vedaupasan@gmail.com" aria-label="Email">Email</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer container">
+        <p>© <span id="year"></span> Veda Upasan Pedagadi — Designed with precision & passion</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- NOTE: script.js will dynamically load projects.json & publications.json and render skills map -->
+</body>
+
+</html>

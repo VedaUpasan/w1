@@ -1,0 +1,231 @@
+/* ---------------------------------------------------
+   VEDA UPASAN PEDAGADI — Elegant Data Portfolio
+   Theme: Graphite–Champagne with Subtle Gradient Particles
+--------------------------------------------------- */
+
+/* Root Theme Variables */
+:root {
+    --font-primary: 'Kugile', serif;
+    --font-secondary: 'Brilliant', serif;
+
+    /* Light Mode Colors */
+    --bg-color-light: #f8f5f2;
+    --text-color-light: #2e2e2e;
+    --accent-color-light: #d1bfa7;
+    --card-bg-light: rgba(255, 255, 255, 0.7);
+    --gradient-start-light: rgba(209, 191, 167, 0.3);
+    --gradient-end-light: rgba(240, 236, 231, 0.2);
+
+    /* Dark Mode Colors */
+    --bg-color-dark: #1e1e1e;
+    --text-color-dark: #f2ede6;
+    --accent-color-dark: #c6a87d;
+    --card-bg-dark: rgba(34, 34, 34, 0.8);
+    --gradient-start-dark: rgba(120, 120, 120, 0.2);
+    --gradient-end-dark: rgba(198, 168, 125, 0.25);
+}
+
+/* Mode Switching */
+body.light-mode {
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+    --accent-color: var(--accent-color-light);
+    --card-bg: var(--card-bg-light);
+    --gradient-start: var(--gradient-start-light);
+    --gradient-end: var(--gradient-end-light);
+}
+
+body.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --gradient-start: var(--gradient-start-dark);
+    --gradient-end: var(--gradient-end-dark);
+}
+
+/* ---------------------------------------------------
+   Global Styling
+--------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.8s ease, color 0.5s ease;
+    overflow-x: hidden;
+}
+
+/* Canvas Background for Moving Gradient Particles */
+#gradient-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 20% 30%,
+            var(--gradient-start),
+            var(--gradient-end));
+    animation: drift 20s infinite alternate ease-in-out;
+    filter: blur(80px);
+}
+
+@keyframes drift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ---------------------------------------------------
+   Navigation Bar
+--------------------------------------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Navbar */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--card-bg);
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ---------------------------------------------------
+   Hero Section
+--------------------------------------------------- */
+.hero {
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+/* ---------------------------------------------------
+   Skills Section — Logo Map
+--------------------------------------------------- */
+.skills {
+    position: relative;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.skills h2 {
+    font-family: var(--font-secondary);
+    color: var(--accent-color);
+    font-size: 2.5rem;
+}
+
+.skill-map {
+    position: relative;
+    height: 400px;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.skill-logo {
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.skill-logo:hover {
+    transform: scale(1.2);
+}
+
+/* ---------------------------------------------------
+   Footer + Back to Top
+--------------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--card-bg);
+    margin-top: 4rem;
+    border-top: 1px solid var(--accent-color);
+}
+
+footer p {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+}
